@@ -701,19 +701,13 @@ gameStart();
 	
 	
 						var get = questionsArray[0];
-
 						var letter = data[get].letter;
 						var num = data[get].number;
 					
 						//alert(mysong1);
 		
 							 $('#mytable').append('<tr><td align="center"><h3>' +  letter +' ' + num + '</h3></td></tr>');
-			
-						
-				
-
-
-			
+		
 						var removed = questionsArray.splice(x, 1); // splice remove the current song
 						$("#testArray").val(questionsArray);
 						
@@ -725,18 +719,12 @@ gameStart();
 		};
 		
 		function gameStart(){
-			reset();
+
 			getQuestionsIndexes();
 			
 		};
 	
-		function reset(){
-			var score = 0; //player's SCORE
-		
-			$("#score").val(score);			//set the score
-			
-			
-		};
+
 		
 
 
