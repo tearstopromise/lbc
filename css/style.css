@@ -1,0 +1,57 @@
+#page{
+
+    margin:0 auto;
+}
+th{
+font-size:30px;
+  width:40px;
+    height:40px;
+    font-family:Segoe UI;
+
+}
+
+
+
+
+td{
+    font-family:Segoe UI;
+    color:#333;
+    padding:10px;
+    width:40px;
+    height:40px;
+    text-align:center;
+    border:3px solid #ddc;
+    background-color:#eee;
+}
+
+.bingohead{
+    border:5px solid #c2324c;
+}
+
+ h3, h3 a{
+    font-family:Segoe UI;
+    text-align:center;
+    padding:3px;
+    color:#211111;
+    background-color:#EEEEEE;
+    border:1px solid #DDDDCC;
+}
+h2{
+    font-family:Segoe UI;
+    text-align:center;
+  
+    color:#211111;
+
+    border:1px solid #DDDDCC;
+}
+td{
+    cursor:pointer;
+}
+
+#free{
+
+    background-color:#fff;
+    color:#211111;
+    cursor:default;
+}
+

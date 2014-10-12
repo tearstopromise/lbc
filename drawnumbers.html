@@ -1,0 +1,749 @@
+﻿<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+<link type="text/css" rel="stylesheet" href="css/jquery.mobile.flatui.css"></link>
+<script src="js/jquery.js"></script>
+<script src="js/jquery.mobile-1.4.0-rc.1.js"></script>
+ <script type="text/javascript" src="js/script.js"></script>
+
+
+</head>
+<body>
+	<div data-role="page" id="gamepage" class="havebg">
+		<div data-role="header" data-position="fixed">
+		<h1>Lucky Numbers</h1>
+		<a data-role="button" href="#go" data-transition="pop" data-rel="dialog">Reset</a>
+		</div>
+		<div data-role="content">
+			<br /><br />
+		<div id="gamemenu">
+				<div id="developermode" >
+
+			
+
+				</div>
+	<center>	
+	<div>
+		Bingo Lucky Number Drawer
+<table style='width:100%' id='mytable' ></table>
+			
+					<button id="draw">Draw</button>
+		</div>	
+
+		</center>
+			
+			
+			<div data-role="popup" id="popupBasic" data-theme="a" class="ui-content" data-position-to="#score" data-transition="flow">
+			<div id="txtcomplement">Complement here</div>
+			</div>
+			</div>
+			
+			
+			<div data-role="popup" id="popupReady" data-theme="b" class="ui-content"  data-overlay-theme="a" data-transition="flip">
+			<div id="txtReady">Ready text</div>
+			</div>
+	
+			
+			
+			
+		</div>
+
+
+
+	</div>
+
+ <div data-role="page" data-theme="d" id="go">
+	<div data-role="header">
+		<h1>Reset</h1>
+	</div>
+	<div data-role="content">
+
+	Are you sure you want to reset drawn numbers? This Process is irreversible.
+<a data-role="button" onClick="rl()" data-theme="d" 
+       >Yes</a>
+<a data-role="button" data-transition="pop" data-theme="d" data-rel="back">Back</a>
+
+	</div>
+	</div>
+	
+</body>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+									
+		
+gameStart();
+		var x = 0;//index for the splice function
+
+		
+	
+	
+		
+		$("#draw").click(function(){
+			
+				//check answer 
+			
+					
+					getQuestion();
+				
+			
+		});
+		
+		
+	
+		
+		function getQuestionsIndexes(){
+			setTimeout(function(){
+				var questionsIndexes = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,
+				20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,
+				41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,
+				61,62,63,64,65,66,67,68,69,70,71,72,73,74];
+				var	randomizeIndexes = [];
+				var	i = questionsIndexes.length;
+				var	j = 0;
+
+				while (i--) {
+					j = Math.floor(Math.random() * (i+1));
+					randomizeIndexes.push(questionsIndexes[j]);
+					questionsIndexes.splice(j,1);
+				}
+				
+				questionsArray = randomizeIndexes; // randomize indexes
+				$("#testArray").val(questionsArray);
+				getQuestion();
+			},50);
+		};
+		
+		function getQuestion() {
+			var qwert= $("#testArray").val();
+			//alert(qwert);
+			if (qwert == "") {
+				//alert("congrats you finished the quiz");
+			var gameOver = $("#score").val();
+			window.localStorage.setItem("lastscore", gameOver);
+			location.href="score.html";
+				
+			
+			}
+			else {
+							//array of questions and answers start
+						var data =[{
+		"id":"0",
+		"letter":"B",
+		"number":"1",
+
+
+	},
+	{
+		"id":"1",
+		"letter":"B",
+		"number":"2",
+		
+	},
+	{
+		"id":"2",
+		
+		"letter":"B",
+		"number":"3",
+		
+	},
+	{
+		"id":"3",
+
+		"letter":"B",
+		"number":"4",
+		
+	},
+	{
+		"id":"4",
+		
+		"letter":"B",
+		"number":"5",
+		
+	},
+	{
+		"id":"5",
+		
+		"letter":"B",
+		"number":"6",
+		
+	},
+	
+	
+	{
+		"id":"6",
+		"letter":"B",
+		"number":"7",
+
+
+	},
+	{
+		"id":"7",
+		"letter":"B",
+		"number":"8",
+		
+	},
+	{
+		"id":"8",
+		
+		"letter":"B",
+		"number":"9",
+		
+	},
+	{
+		"id":"9",
+
+		"letter":"B",
+		"number":"10",
+		
+	},
+	{
+		"id":"10",
+		
+		"letter":"B",
+		"number":"11",
+		
+	},
+	{
+		"id":"12",
+		
+		"letter":"B",
+		"number":"13",
+		
+	},
+	
+	{
+		"id":"13",
+		"letter":"B",
+		"number":"14",
+
+
+	},
+	{
+		"id":"14",
+		"letter":"B",
+		"number":"15",
+		
+	},
+	{
+		"id":"15",
+		
+		"letter":"I",
+		"number":"16",
+		
+	},
+	{
+		"id":"16",
+
+		"letter":"I",
+		"number":"17",
+		
+	},
+	{
+		"id":"17",
+		
+		"letter":"I",
+		"number":"18",
+		
+	},
+	{
+		"id":"18",
+		
+		"letter":"I",
+		"number":"19",
+		
+	},
+		{
+		"id":"19",
+		
+		"letter":"I",
+		"number":"20",
+		
+	},	{
+		"id":"18",
+		
+		"letter":"I",
+		"number":"19",
+		
+	},
+	{
+		"id":"20",
+		
+		"letter":"I",
+		"number":"20",
+		
+	},{
+		"id":"21",
+		
+		"letter":"I",
+		"number":"22",
+		
+	},{
+		"id":"22",
+		
+		"letter":"I",
+		"number":"23",
+		
+	},{
+		"id":"23",
+		
+		"letter":"I",
+		"number":"24",
+		
+	},
+	{
+		"id":"24",
+		
+		"letter":"I",
+		"number":"25",
+		
+	},{
+		"id":"25",
+		
+		"letter":"I",
+		"number":"26",
+		
+	},
+	{
+		"id":"26",
+		
+		"letter":"I",
+		"number":"27",
+		
+	},
+	{
+		"id":"27",
+		
+		"letter":"I",
+		"number":"28",
+		
+	},
+	{
+		"id":"28",
+		
+		"letter":"I",
+		"number":"29",
+		
+	},{
+		"id":"29",
+		
+		"letter":"I",
+		"number":"30",
+		
+	},
+	
+	{
+		"id":"30",
+		
+		"letter":"N",
+		"number":"31",
+		
+	},
+	{
+		"id":"31",
+		
+		"letter":"N",
+		"number":"32",
+		
+	},{
+		"id":"32",
+		
+		"letter":"N",
+		"number":"33",
+		
+	},
+	{
+		"id":"33",
+		
+		"letter":"N",
+		"number":"34",
+		
+	},{
+		"id":"34",
+		
+		"letter":"N",
+		"number":"35",
+		
+	},{
+		"id":"35",
+		
+		"letter":"N",
+		"number":"36",
+		
+	},{
+		"id":"36",
+		
+		"letter":"N",
+		"number":"37",
+		
+	},{
+		"id":"37",
+		
+		"letter":"N",
+		"number":"38",
+		
+	},{
+		"id":"39",
+		
+		"letter":"N",
+		"number":"40",
+		
+	},{
+		"id":"40",
+		
+		"letter":"N",
+		"number":"41",
+		
+	},{
+		"id":"41",
+		
+		"letter":"N",
+		"number":"42",
+		
+	},{
+		"id":"42",
+		
+		"letter":"N",
+		"number":"43",
+		
+	},{
+		"id":"43",
+		
+		"letter":"N",
+		"number":"44",
+		
+	},{
+		"id":"44",
+		
+		"letter":"N",
+		"number":"45",
+		
+	},{
+		"id":"45",
+		
+		"letter":"G",
+		"number":"46",
+		
+	},{
+		"id":"46",
+		
+		"letter":"G",
+		"number":"47",
+		
+	},
+	{
+		"id":"47",
+		
+		"letter":"G",
+		"number":"48",
+		
+	},{
+		"id":"48",
+		
+		"letter":"G",
+		"number":"49",
+		
+	},
+	{
+		"id":"49",
+		
+		"letter":"G",
+		"number":"50",
+		
+	},
+	{
+		"id":"50",
+		
+		"letter":"G",
+		"number":"51",
+		
+	},
+	{
+		"id":"51",
+		
+		"letter":"G",
+		"number":"52",
+		
+	},{
+		"id":"52",
+		
+		"letter":"G",
+		"number":"53",
+		
+	},{
+		"id":"53",
+		
+		"letter":"G",
+		"number":"54",
+		
+	},
+	
+	{
+		"id":"54",
+		
+		"letter":"G",
+		"number":"55",
+		
+	},{
+		"id":"55",
+		
+		"letter":"G",
+		"number":"56",
+		
+	},
+	{
+		"id":"56",
+		
+		"letter":"G",
+		"number":"57",
+		
+	},{
+		"id":"57",
+		
+		"letter":"G",
+		"number":"58",
+		
+	},{
+		"id":"59",
+		
+		"letter":"G",
+		"number":"60",
+		
+	},{
+		"id":"45",
+		
+		"letter":"G",
+		"number":"46",
+		
+	},{
+		"id":"46",
+		
+		"letter":"G",
+		"number":"47",
+		
+	},
+	{
+		"id":"47",
+		
+		"letter":"G",
+		"number":"48",
+		
+	},{
+		"id":"48",
+		
+		"letter":"G",
+		"number":"49",
+		
+	},
+	{
+		"id":"49",
+		
+		"letter":"G",
+		"number":"50",
+		
+	},
+	{
+		"id":"50",
+		
+		"letter":"G",
+		"number":"51",
+		
+	},
+	{
+		"id":"51",
+		
+		"letter":"G",
+		"number":"52",
+		
+	},{
+		"id":"52",
+		
+		"letter":"G",
+		"number":"53",
+		
+	},{
+		"id":"53",
+		
+		"letter":"G",
+		"number":"54",
+		
+	},
+	
+	{
+		"id":"54",
+		
+		"letter":"G",
+		"number":"55",
+		
+	},{
+		"id":"55",
+		
+		"letter":"G",
+		"number":"56",
+		
+	},
+	{
+		"id":"56",
+		
+		"letter":"G",
+		"number":"57",
+		
+	},{
+		"id":"57",
+		
+		"letter":"G",
+		"number":"58",
+		
+	},{
+		"id":"58",
+		
+		"letter":"G",
+		"number":"59",
+		
+	},{
+		"id":"59",
+		
+		"letter":"G",
+		"number":"60",
+		
+	},
+	{
+		"id":"60",
+		
+		"letter":"O",
+		"number":"61",
+		
+	},	{
+		"id":"61",
+		
+		"letter":"O",
+		"number":"62",
+		
+	},	{
+		"id":"62",
+		
+		"letter":"O",
+		"number":"63",
+		
+	},	{
+		"id":"63",
+		
+		"letter":"O",
+		"number":"64",
+		
+	},	{
+		"id":"64",
+		
+		"letter":"O",
+		"number":"65",
+		
+	},	{
+		"id":"65",
+		
+		"letter":"O",
+		"number":"66",
+		
+	},	{
+		"id":"66",
+		
+		"letter":"O",
+		"number":"67",
+		
+	},	{
+		"id":"68",
+		
+		"letter":"O",
+		"number":"69",
+		
+	},	{
+		"id":"69",
+		
+		"letter":"O",
+		"number":"70",
+		
+	},	{
+		"id":"70",
+		
+		"letter":"O",
+		"number":"71",
+		
+	},	{
+		"id":"71",
+		
+		"letter":"O",
+		"number":"72",
+		
+	},
+		{
+		"id":"72",
+		
+		"letter":"O",
+		"number":"73",
+		
+	},
+		{
+		"id":"73",
+		
+		"letter":"O",
+		"number":"74",
+		
+	},	{
+		"id":"74",
+		
+		"letter":"O",
+		"number":"75",
+		
+	}
+	
+	];
+	
+	
+						var get = questionsArray[0];
+
+						var letter = data[get].letter;
+						var num = data[get].number;
+					
+						//alert(mysong1);
+		
+							 $('#mytable').append('<tr><td align="center"><h3>' +  letter +' ' + num + '</h3></td></tr>');
+			
+						
+				
+
+
+			
+						var removed = questionsArray.splice(x, 1); // splice remove the current song
+						$("#testArray").val(questionsArray);
+						
+
+			
+
+			}
+
+		};
+		
+		function gameStart(){
+			reset();
+			getQuestionsIndexes();
+			
+		};
+	
+		function reset(){
+			var score = 0; //player's SCORE
+		
+			$("#score").val(score);			//set the score
+			
+			
+		};
+		
+
+
+	});
+	function rl(){
+	location.href = "index.html";
+}
+
+</script>
+</html>

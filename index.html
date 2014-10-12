@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="js/jquery.js"></script>
+<script>
+function rl(){
+location.reload();
+}
+
+var clickSnd = new Audio("audio/click.mp3");
+var winSnd = new Audio("audio/win.mp3");
+window.addEventListener("devicemotion", function myListener(event) {
+		var ax = event.accelerationIncludingGravity.x;
+		var ay = event.accelerationIncludingGravity.y;
+	var ay = event.accelerationIncludingGravity.y; 
+		var az = event.accelerationIncludingGravity.z; 
+		
+
+		
+		if(ax>7){
+		    document.getElementById("stat").value="Please Wait";
+
+		    setTimeout(function(){window.location.assign("#bingopage")},2000);
+		    window.removeEventListener("devicemotion", myListener,false);
+		}
+			
+			if(ax>6){
+		document.getElementById("stat").value="Please Wait";
+
+		
+		}
+		
+}, true);
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+       <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+
+<link type="text/css" rel="stylesheet" href="css/jquery.mobile.flatui.css"></link>
+<script src="js/jquery.js"></script>
+<script src="js/jquery.mobile-1.4.0-rc.1.js"></script>
+ <script type="text/javascript" src="js/script.js"></script>
+ 
+
+ 
+</head>
+
+
+<body>
+
+<div data-role="page" data-theme="d" id="main">
+
+
+	<div data-role="header" data-theme="d">
+		<h1>Lucky Bingo Card</h1>
+		
+	</div>
+	<div data-role="content">
+<h1 id="stat"></h1>
+	<br />
+	<br />
+	
+	<img src = "img/bingoapp.png" style="width:100%;opacity:100;margin-left:auto;margin-right:auto;display:block" id="stat"/>
+	
+	</div>
+
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+		<ul>
+
+			
+			<!--<li><a href="drawnumbers.html" data-transition="fade" >Draw Numbers</a></li>-->
+			<li><a id="gen"data-transition="fade" >Lucky Numbers</a></li>
+			<li><a href="#About" data-transition="fade" >About</a></li>
+	
+	
+
+		</ul>
+		</div>
+	</div>
+</div>
+
+
+<!--About-->
+<div data-role="page" id="About">
+        <div data-role="header" data-position="relative">
+        
+
+            <h1>About</h1>
+        </div>
+        <div data-role="content">
+
+				<div class="ui-body ui-body-e">
+            <center><h2><u>Developed By:</u></h2>
+			
+			<img src = "img/404logo.png" style="width:100%;opacity:100;margin-left:auto;margin-right:auto;display:block"/>
+		
+			
+
+			<img src = "img/about.png" style="width:100%;opacity:100;margin-left:auto;margin-right:auto;display:block"/>
+			<img src = "img/about2.png" style="width:100%;opacity:100;margin-left:auto;margin-right:auto;display:block"/>
+			
+			<img src="img/ccslogo.png" class="center-block" style="width:30%;margin-bottom:5px;">
+					 <div class="text-center">Gordon College - College of Computer Studies, Olongapo City, Philippines</div></center>
+					 <br>
+			</div>
+			<br />
+	
+        </div>
+
+        <div data-role="footer" data-position="relative">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#main" data-transition="fade" data-icon="home">Home</a></li>
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+<!-- main game-->
+<div data-role="page" data-theme="d" id="bingopage">
+
+	<div data-role="header" data-theme="d">
+		<h1>Let's Play!</h1>
+		
+	</div>
+	<div data-role="content">
+
+
+            <table width="100%">
+			     <tr>
+                    <th>&nbsp;B &nbsp;</th>
+                    <th>&nbsp;I &nbsp;</th>
+                    <th>&nbsp;N &nbsp;</th>
+                    <th>&nbsp;G &nbsp;</th>
+                    <th>&nbsp;O &nbsp;</th>
+                </tr>
+                <tr>
+                    <td id="cell0">&nbsp;nbsp;</td>
+                    <td id="cell5">&nbsp;nbsp;</td>
+                    <td id="cell10">&nbsp;nbsp;</td>
+                    <td id="cell14">&nbsp;nbsp;</td>
+                    <td id="cell19">&nbsp;nbsp;</td>
+                </tr>
+                <tr>
+                    <td id="cell1">&nbsp;nbsp;</td>
+                    <td id="cell6">&nbsp;nbsp;</td>
+                    <td id="cell11">&nbsp;nbsp;</td>
+                    <td id="cell15">&nbsp;nbsp;</td>
+                    <td id="cell20">&nbsp;nbsp;</td>
+                </tr>
+                <tr>
+                    <td id="cell2">&nbsp;nbsp;</td>
+                    <td id="cell7">&nbsp;nbsp;</td>
+                    <td id="free">Free</td>
+                    <td id="cell16">&nbsp;nbsp;</td>
+                    <td id="cell21">&nbsp;nbsp;</td>
+                </tr>
+                <tr>
+                    <td id="cell3">&nbsp;nbsp;</td>
+                    <td id="cell8">&nbsp;nbsp;</td>
+                    <td id="cell12">&nbsp;nbsp;</td>
+                    <td id="cell17">&nbsp;nbsp;</td>
+                    <td id="cell22">&nbsp;nbsp;</td>
+                </tr>
+                <tr>
+                    <td id="cell4">&nbsp;nbsp;</td>
+                    <td id="cell9">&nbsp;nbsp;</td>
+                    <td id="cell13">&nbsp;nbsp;</td>
+                    <td id="cell18">&nbsp;nbsp;</td>
+                    <td id="cell23">&nbsp;nbsp;</td>
+                </tr>
+            </table>
+		<div id="header"></div>
+
+	</div>
+
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+		<ul>
+	<li><a href="#patterns" data-transition="flip">Patterns</a></li>
+	
+	
+			<li><a data-role="button" href="#go" data-transition="pop" data-rel="dialog">Game Over</a></li>
+	
+	
+
+		</ul>
+		</div>
+	</div>
+</div>
+
+
+
+
+    <div data-role="page" data-theme="d" id="patterns">
+	<div data-role="header">
+		<h1>Basic Bingo Patterns</h1>
+	</div>
+	<div data-role="content">
+
+<img src="img/patterns.jpg" width="100%" />
+
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+		<ul>
+	<li><a href="#bingopage" data-transition="flip">Back</a></li>
+	
+	
+	
+	
+
+		</ul>
+		</div>
+	</div>
+</div>
+
+
+
+
+ <div data-role="page" data-theme="d" id="go">
+	<div data-role="header">
+		<h1>Reset Card</h1>
+	</div>
+	<div data-role="content">
+
+	Are you sure you want to reset and get a new set of card?
+<a data-role="button" onClick="rl()" data-theme="d" 
+       >Yes</a>
+<a data-role="button" data-transition="pop" data-theme="d" href="#bingopage"
+    data-rel="dialog">Back</a>
+
+	</div>
+	
+</div>
+
+</body>
+<script>
+	$("#gen").click(function(){
+			location.href = "drawnumbers.html";
+		});
+
+</script>
+</html>
